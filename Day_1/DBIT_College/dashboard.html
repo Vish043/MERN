@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DBIT College</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(237, 237, 185);
+    }
+    header {
+      background-color: #3e054e;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    nav {
+      background-color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    nav a:hover {
+      background-color: #575757;
+    }
+    .container {
+      padding: 20px;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      color: #333;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: rgb(232, 225, 14);
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    /* Styling for the college photo */
+    .college-photo {
+      max-width: 100%;
+      width:700px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    /* Styling for the video player */
+    .college-video {
+      width: 100%;
+      width:700px;
+      max-width: 800px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Don Bosco Institute of Technology</h1>
+</header>
+
+<nav>
+  <a href="#overview">College Overview</a>
+  <a href="#departments">Departments</a>
+  <a href="#contact">Contact Us</a>
+  <a href="#events">Events</a>
+  <a href="#quick-links">Quick Links</a>
+</nav>
+
+<div class="container">
+
+  <!-- College Overview Section -->
+  <section id="overview" class="section">
+    <h2>DBIT Overview</h2>
+    
+    <!-- Space for College Photo -->
+    <img src="C:\Users\YESHWANTH\Desktop\Mern\Day_1\DBIT_College\R.jpg" alt="College Photo" class="college-photo">
+    
+    <!-- Space for Preview Video -->
+    <video class="college-video" controls>
+      <source src="C:\Users\YESHWANTH\Desktop\Mern\Day_1\DBIT_College\don-bosco-institute-of-technology-dbit-bangalore-karnataka-1080-publer.io.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    
+    <p>Welcome to the Engineering College. Our mission is to provide high-quality education in the field of engineering, fostering innovation and excellence. Our vision is to prepare students for the challenges of tomorrow's industries.</p>
+    <div class="card">
+      <h3>Important Announcements</h3>
+      <ul>
+        <li>New admission forms available for the 2024 batch.</li>
+        <li>Engineering Symposium scheduled for next month.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Departments Section -->
+  <section id="departments" class="section">
+    <h2>Departments</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Computer Science Engineering</h3>
+        <ul>
+          <li>Courses: Data Structures, Algorithms, etc.</li>
+          <li>Faculty: Prof. John Doe</li>
+          <li>Research Areas: AI, ML, Cybersecurity</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Electrical Engineering</h3>
+        <ul>
+          <li>Courses: Circuit Analysis, Electronics, etc.</li>
+          <li>Faculty: Dr. Jane Smith</li>
+          <li>Research Areas: Robotics, Energy Systems</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Artificial Intelligence & Data Science Engineering</h3>
+        <ul>
+          <li>Courses: Data science & Analytics, NLP, etc.</li>
+          <li>Faculty: Prof. Michael Lee</li>
+          <li>Research Areas: Reinforcement Learning,NLP</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Artificial Intelligence & Machine Learning Engineering</h3>
+        <ul>
+          <li>Courses: Deep Learning, Machine Learning, etc.</li>
+          <li>Faculty: Prof. Jensen Huang</li>
+          <li>Research Areas: Generative Models and GANs (Generative Adversarial Networks)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <div class="card">
+      <h3>General Contact</h3>
+      <p>Email: dbit@college.com</p>
+      <p>Phone: +91 81978 54382</p>
+      <p>Address: Mysore Road, Kumbalgodu, Bangalore, India</p>
+    </div>
+    <div class="card">
+      <h3>Contact Form</h3>
+      <form>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Events & Announcements Section -->
+  <section id="events" class="section">
+    <h2>Upcoming Events</h2>
+    <ul>
+      <li>Engineering Symposium - March 15, 2024</li>
+      <li>Workshop on AI - April 10, 2024</li>
+      <li>Admissions Open Day - May 5, 2024</li>
+    </ul>
+  </section>
+
+  <!-- Quick Links Section -->
+  <section id="quick-links" class="section">
+    <h2>Quick Links</h2>
+    <ul>
+      <li><a href="#">Admissions</a></li>
+      <li><a href="#">Scholarships</a></li>
+      <li><a href="#">Campus Life</a></li>
+      <li><a href="#">Alumni</a></li>
+      <li><a href="#">Student Portal</a></li>
+      <li><a href="#">LMS</a></li>
+      <li><a href="#">Library Resources</a></li>
+    </ul>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2024 Engineering College | All Rights Reserved</p>
+  <div>
+    <a href="#">Facebook</a> | 
+    <a href="#">Twitter</a> | 
+    <a href="#">LinkedIn</a>
+  </div>
+</footer>
+
+</body>
+</html>
