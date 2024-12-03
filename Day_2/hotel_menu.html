@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Menu</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #121212;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 20px;
+        font-size: 36px;
+        color: #ff9800;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    table {
+        width: 80%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        background-color: #1d1d1d;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 20px;
+        text-align: center;
+        font-size: 18px;
+        border-bottom: 1px solid #444;
+    }
+
+    th {
+        background-color: #333;
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    td {
+        color: #ddd;
+    }
+
+    tr:hover {
+        background-color: #333;
+    }
+
+    td img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+
+    td img:hover {
+        transform: scale(1.1);
+    }
+
+    .price-column {
+        font-weight: bold;
+        color: #4caf50;
+    }
+
+    .price-column::before {
+        content: "₹";
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 14px;
+        color: #aaa;
+    }
+
+    footer a {
+        color: #ff9800;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    .menu-form {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #222;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .menu-form button {
+        background-color: #ff9800;
+        color: #fff;
+        padding: 15px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .menu-form button:hover {
+        background-color: #ff5722;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        table {
+            width: 95%;
+        }
+
+        th, td {
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        td img {
+            width: 80px;
+            height: 80px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<h1>Hotel Menu</h1>
+
+<form class="menu-form" action="/submit-order" method="POST">
+    <table>
+        <tr>
+            <th>Image</th>
+            <th>Dish Name</th>
+            <th class="price-column">Price</th>
+            <th>Select</th>
+            <th>Quantity</th>
+        </tr>
+        <tr>
+            <td><img src="./images/Chicken-Biryani.jpg" alt="Chicken Biryani"></td>
+            <td>Chicken Biryani</td>
+            <td class="price-column">250</td>
+            <td><input type="checkbox" name="dishes[]" value="Chicken Biryani"></td>
+            <td><input type="number" name="quantity-Chicken-Biryani" min="1" value="1"></td>
+        </tr>
+        <tr>
+            <td><img src="./images/tandoori.jpg" alt="Tandoori Chicken"></td>
+            <td>Tandoori Chicken</td>
+            <td class="price-column">200</td>
+            <td><input type="checkbox" name="dishes[]" value="Tandoori Chicken"></td>
+            <td><input type="number" name="quantity-Tandoori-Chicken" min="1" value="1"></td>
+        </tr>
+        <tr>
+            <td><img src="./images/palak.jfif" alt="Palak Paneer"></td>
+            <td>Palak Paneer</td>
+            <td class="price-column">180</td>
+            <td><input type="checkbox" name="dishes[]" value="Palak Paneer"></td>
+            <td><input type="number" name="quantity-Palak-Paneer" min="1" value="1"></td>
+        </tr>
+        <tr>
+            <td><img src="./images/naan.jpg" alt="Naan"></td>
+            <td>Naan</td>
+            <td class="price-column">50</td>
+            <td><input type="checkbox" name="dishes[]" value="Naan"></td>
+            <td><input type="number" name="quantity-Naan" min="1" value="1"></td>
+        </tr>
+        <tr>
+            <td><img src="./images/kulfi.jpg" alt="Kulfi"></td>
+            <td>Kulfi</td>
+            <td class="price-column">100</td>
+            <td><input type="checkbox" name="dishes[]" value="Kulfi"></td>
+            <td><input type="number" name="quantity-Kulfi" min="1" value="1"></td>
+        </tr>
+        <!-- Additional rows with checkbox and quantity inputs -->
+        <tr>
+            <td><img src="./images/butter.jfif" alt="Paneer Butter Masala"></td>
+            <td>Paneer Butter Masala</td>
+            <td class="price-column">280</td>
+            <td><input type="checkbox" name="dishes[]" value="Paneer Butter Masala"></td>
+            <td><input type="number" name="quantity-Paneer-Butter-Masala" min="1" value="1"></td>
+        </tr>
+        <tr>
+            <td><img src="./images/dal.jfif" alt="Dal Makhani"></td>
+            <td>Dal Makhani</td>
+            <td class="price-column">150</td>
+            <td><input type="checkbox" name="dishes[]" value="Dal Makhani"></td>
+            <td><input type="number" name="quantity-Dal-Makhani" min="1" value="1"></td>
+        </tr>
+        <tr>
+            <td><img src="./images/chole.jpg" alt="Chole Bhature"></td>
+            <td>Chole Bhature</td>
+            <td class="price-column">120</td>
+            <td><input type="checkbox" name="dishes[]" value="Chole Bhature"></td>
+            <td><input type="number" name="quantity-Chole-Bhature" min="1" value="1"></td>
+        </tr>
+        <tr>
+            <td><img src="./images/aloo.jfif" alt="Aloo Paratha"></td>
+            <td>Aloo Paratha</td>
+            <td class="price-column">60</td>
+            <td><input type="checkbox" name="dishes[]" value="Aloo Paratha"></td>
+            <td><input type="number" name="quantity-Aloo-Paratha" min="1" value="1"></td>
+        </tr>
+        <tr>
+            <td><img src="./images/Gajar.jpg" alt="Gajar Halwa"></td>
+            <td>Gajar Halwa</td>
+            <td class="price-column">130</td>
+            <td><input type="checkbox" name="dishes[]" value="Gajar Halwa"></td>
+            <td><input type="number" name="quantity-Gajar-Halwa" min="1" value="1"></td>
+        </tr>
+        <tr>
+            <td><img src="./images/lassi.jfif" alt="Lassi"></td>
+            <td>Lassi</td>
+            <td class="price-column">80</td>
+            <td><input type="checkbox" name="dishes[]" value="Lassi"></td>
+            <td><input type="number" name="quantity-Lassi" min="1" value="1"></td>
+        </tr>
+    </table>
+    <button type="submit">Submit Order</button>
+</form>
+
+<footer>
+    &copy; 2024 <a href="#">Hotel Menu</a>. All rights reserved.
+</footer>
+
+</body>
+</html>

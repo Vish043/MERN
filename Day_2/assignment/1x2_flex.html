@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1x2 Image Matrix</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #2c3e50; /* Dark theme */
+            color: #ecf0f1; /* Light text color */
+            font-family: Arial, sans-serif;
+        }
+        .image-container {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            gap: 8px; /* Space between images */
+            padding: 10px; /* Minimal padding */
+            border: 2px solid #ecf0f1; /* Light border around the container */
+            border-radius: 12px; /* Rounded corners */
+            background-color: #34495e; /* Slightly lighter dark background */
+        }
+        .image-container img {
+            max-width: 300px;
+            height: auto;
+            border: 2px solid #ecf0f1; /* Light border around each image */
+            border-radius: 8px; /* Rounded corners for the images */
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="./images/aec8f940-3469-5597-816f-0dd903b3407c.jpg" alt="Image 1">
+        <img src="./images/e0768043-f16d-5667-a3cd-c51a212d68ac.jpg" alt="Image 2">
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+body{
+    background-color: antiquewhite;
+
+
+}
+.p1 {
+    color:rgb(3, 53, 53);
+    background-color: beige;
+    text-align: rtl;
+    text-transform: capitalize;
+    text-indent: 5cm;
+    direction: rtl;
+    letter-spacing: 0.01cm;
+    line-height: 1cm;
+    word-spacing: 1cm ;
+    white-space: none;
+    text-shadow: 1px 1px rgb(102, 2, 22);
+
+}
+.p2 {
+    color:red;
+    text-align: left;
+}
+.p3{
+    color: rgb(204, 11, 253);
+    direction : ltr;
+}

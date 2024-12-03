@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2x1 Image Matrix</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #2c3e50; /* Dark theme */
+            color: #ecf0f1; /* Light text color */
+            font-family: Arial, sans-serif;
+        }
+        .image-container {
+            display: flex;
+            flex-direction: row; /* Stack items vertically */
+            gap: 10px; /* Space between images */
+            padding: 10px; /* Minimal padding */
+            border: 2px solid #ecf0f1; /* Light border around the container */
+            border-radius: 12px; /* Rounded corners */
+            background-color: #34495e; /* Slightly lighter dark background */
+        }
+        .image-container img {
+            max-width: 300px;
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="./images/endless-desert-landscape-with-rolling-sand-dunes-sparse-vegetation-sky-is-clear-blue-with-few-clouds-dotting-horizon_14117-514159.avif" alt="Image 1">
+        <img src="./images/realistic-mountain-landscape-with-sunrise_1234738-248153.avif" alt="Image 2">
+    </div>
+</body>
+</html>

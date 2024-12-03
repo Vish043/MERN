@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image with Separate Borders</title>
+    <style>
+        body{
+            background-color: grey;
+        }
+        .headline{
+            text-align: center;
+            color: blueviolet;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), -2px -2px 4px rgba(0, 0, 0, 0.5);;
+        }
+        /* Container to hold images and apply flexbox */
+        .image-container {
+            display: flex;                /* Enable flexbox layout */
+            flex-wrap: wrap;              /* Allow images to wrap to the next line if needed */
+            gap: 20px;                    /* Space between images */
+            justify-content: center;     /* Center images horizontally */
+        }
+
+        /* Image style for applying separate borders */
+        .dottedbordered-image, .dashedbordered-image, .solidbordered-image,
+        .doublebordered-image, .groovebordered-image, .ridgebordered-image,
+        .insetbordered-image, .outsetbordered-image, .nonebordered-image, .hiddenbordered-image {
+            width: 300px;                /* Fixed width for all images */
+            height: auto;                /* Maintain aspect ratio */
+            padding: 10px;               /* Padding inside the border */
+            box-sizing: border-box;      /* Ensures padding and borders don't affect the image size */
+        }
+
+        /* Individual border styles */
+        .dottedbordered-image {
+            border: 5px dotted red;
+        }
+        .dashedbordered-image {
+            border: 5px dashed rgb(126, 15, 126);
+        }
+        .solidbordered-image {
+            border: 5px solid rgb(200, 244, 5);
+        }
+        .doublebordered-image {
+            border: 5px double rgb(29, 9, 246);
+        }
+        .groovebordered-image {
+            border: 5px groove #01951a;
+        }
+        .ridgebordered-image {
+            border: 5px ridge rgb(81, 0, 202);
+        }
+        .insetbordered-image {
+            border: 5px inset rgb(5, 167, 173) ;
+        }
+        .outsetbordered-image {
+            border: 5px outset rgb(5, 58, 22);
+        }
+        .nonebordered-image {
+            border: 5px none red;
+        }
+        .hiddenbordered-image {
+            border: 5px hidden red;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 class="headline">Images with Separate Borders</h2>
+
+    <div class="image-container">
+        <img src="../images/Chicken-Biryani.jpg" alt="Placeholder Image" class="solidbordered-image">
+        <img src="../images/Chicken-Biryani.jpg" alt="Placeholder Image" class="dottedbordered-image">
+        <img src="../images/Chicken-Biryani.jpg" alt="Placeholder Image" class="dashedbordered-image">
+        <img src="../images/Chicken-Biryani.jpg" alt="Placeholder Image" class="doublebordered-image">
+        <img src="../images/Chicken-Biryani.jpg" alt="Placeholder Image" class="groovebordered-image">
+        <img src="../images/Chicken-Biryani.jpg" alt="Placeholder Image" class="ridgebordered-image">
+        <img src="../images/Chicken-Biryani.jpg" alt="Placeholder Image" class="insetbordered-image">
+        <img src="../images/Chicken-Biryani.jpg" alt="Placeholder Image" class="outsetbordered-image">
+        <img src="../images/Chicken-Biryani.jpg" alt="Placeholder Image" class="nonebordered-image">
+        <img src="../images/Chicken-Biryani.jpg" alt="Placeholder Image" class="hiddenbordered-image">
+    </div>
+
+</body>
+</html>
