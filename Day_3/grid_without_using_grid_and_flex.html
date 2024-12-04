@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Grid Layout</title>
+  <style>
+    /* Container using grid layout */
+    .container {
+      display: grid; /* Set display to grid */
+      grid-template-columns: repeat(3, 1fr); /* Create three equal-width columns */
+      grid-template-rows: repeat(2, 1fr); /* Two equal-height rows */
+      gap: 10px; /* Space between items */
+      width: 100vw; /* Make the container take the full viewport width */
+      height: 100vh; /* Make the container take the full viewport height */
+      box-sizing: border-box;
+      padding: 15px;
+    }
+
+    /* Item styling */
+    .item {
+      position: relative; /* Ensure proper layout for child elements */
+      overflow: hidden; /* Hide any overflowing parts of images */
+      border-radius: 15px; /* Rounded corners for aesthetic appeal */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    }
+
+    .item:hover {
+      transform: scale(1.05); /* Slightly zoom the image on hover */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    }
+
+    /* Image styling inside each item */
+    .item img {
+      width: 100%; /* Make image fill the container */
+      height: 100%; /* Fill height of the container */
+      object-fit: cover; /* Ensure image covers the area, maintaining aspect ratio */
+      transition: opacity 0.3s ease; /* Smooth fade effect */
+    }
+
+    /* Image opacity on hover */
+    .item:hover img {
+      opacity: 0.8; /* Slight fade effect on hover */
+    }
+
+    /* Responsive layout for small screens */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on medium-sized screens */
+        grid-template-rows: repeat(3, 1fr); /* Three rows */
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        grid-template-rows: repeat(6, 1fr); /* Six rows */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item"><img src="./images/cliffside-base-jump-stockcake.jpg" alt="Cliffside Base Jump"></div>
+    <div class="item"><img src="./images/dramatic-cliff-face-towering-raging-ocean-storm-with-crashing-waves-churning-surf_938957-64099.jpg" alt="Ocean Storm"></div>
+    <div class="item"><img src="./images/dramatic-nighttime-scene-with-multiple-lightning-strikes-barren-desolate-landscape_1010211-4435.avif" alt="Lightning Storm"></div>
+    <div class="item"><img src="./images/erupting-volcanic-crater-stockcake.jpg" alt="Volcanic Eruption"></div>
+    <div class="item"><img src="./images/lion-charging-forward-stockcake.webp" alt="Charging Lion"></div>
+    <div class="item"><img src="./images/mystical-jungle-serenity-stockcake.jpg" alt="Jungle Serenity"></div>
+  </div>
+</body>
+</html>

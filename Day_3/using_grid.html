@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Grid Layout</title>
+  <style>
+    /* General body styling for a dark background */
+    body {
+      background-color: #121212; /* Dark background for the whole page */
+      color: #fff; /* White text color for contrast */
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh; /* Ensure full viewport height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Table styling */
+    table {
+      width: 90vw; /* Adjust the width to fit on the page */
+      height: 90vh; /* Adjust the height to fit on the page */
+      border-collapse: collapse;
+      table-layout: fixed; /* Ensures the cells are of equal size */
+    }
+
+    /* Table cell styling */
+    td {
+      padding: 5px;
+      border: 2px solid #fff; /* White border around each cell */
+      text-align: center;
+      vertical-align: middle;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
+      border-radius: 15px; /* Rounded corners */
+      background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+      height: 33%; /* Ensure each cell takes up 1/3 of the height */
+    }
+
+    /* Image styling inside each cell */
+    td img {
+      width: 100%; /* Make image fill the cell */
+      height: 100%; /* Fill height of the cell */
+      object-fit: cover; /* Ensure image covers the area, maintaining aspect ratio */
+      border-radius: 15px; /* Rounded corners for images */
+      transition: opacity 0.3s ease; /* Smooth fade effect */
+    }
+
+    /* Hover effect for table cells */
+    td:hover {
+      transform: scale(1.05); /* Slight zoom on hover */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
+    }
+
+    /* Image opacity on hover */
+    td:hover img {
+      opacity: 0.7; /* Slight fade effect on hover */
+    }
+
+    /* Responsive layout for small screens */
+    @media (max-width: 768px) {
+      table {
+        width: 95vw; /* Adjust the table width for smaller screens */
+      }
+      td {
+        height: 30%; /* Adjust cell height for smaller screens */
+      }
+    }
+
+    @media (max-width: 600px) {
+      table {
+        width: 100vw; /* Make table full-width on very small screens */
+      }
+      td {
+        height: 33%; /* Keep cells square on very small screens */
+      }
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td><img src="./images/cliffside-base-jump-stockcake.jpg" alt="Cliffside Base Jump"></td>
+      <td><img src="./images/dramatic-cliff-face-towering-raging-ocean-storm-with-crashing-waves-churning-surf_938957-64099.jpg" alt="Ocean Storm"></td>
+      <td><img src="./images/dramatic-nighttime-scene-with-multiple-lightning-strikes-barren-desolate-landscape_1010211-4435.avif" alt="Lightning Storm"></td>
+    </tr>
+    <tr>
+      <td><img src="./images/erupting-volcanic-crater-stockcake.jpg" alt="Volcanic Eruption"></td>
+      <td><img src="./images/lion-charging-forward-stockcake.webp" alt="Charging Lion"></td>
+      <td><img src="./images/mystical-jungle-serenity-stockcake.jpg" alt="Jungle Serenity"></td>
+    </tr>
+    <tr>
+        <td><img src="./images/beautiful-japanese-forest-scene_23-2151498059.avif" alt="Volcanic Eruption"></td>
+        <td><img src="./images/burning-forest-global-warming-wildfire-photography_53876-104834 (1).avif" alt="Charging Lion"></td>
+        <td><img src="./images/inferno-destroys-forest-nature-physical-structure-demolished-generated-by-ai_188544-31701.avif" alt="Jungle Serenity"></td>
+      </tr>
+  </table>
+</body>
+</html>

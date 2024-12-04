@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Listing Page</title>
+  <style>
+    /* General body and font styling */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212; /* Dark background */
+      color: #fff; /* White text color for contrast */
+    }
+
+    /* Header section */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #1a1a1a; /* Dark background for header */
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    header nav {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    header nav a {
+      margin: 0 20px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    header .search-bar input {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 20px;
+      border: none;
+      margin-right: 20px;
+      width: 200px;
+    }
+
+    header .cart {
+      font-size: 20px;
+      color: #fff;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 25%;
+      background-color: #1a1a1a;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      box-sizing: border-box;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .filter-group {
+      margin-bottom: 20px;
+    }
+
+    .filter-group select,
+    .filter-group input {
+      width: 100%;
+      padding: 8px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .filter-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .ratings {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .ratings .star {
+      color: #ffcc00;
+      font-size: 16px;
+    }
+
+    .ratings .empty-star {
+      color: #555;
+    }
+
+    /* Product grid */
+    .content {
+      margin-left: 25%; /* Adjust for sidebar */
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .product {
+      background-color: #2b2b2b;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .product img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .product h4 {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .product p {
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    .product button {
+      background-color: #e67e22;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .product button:hover {
+      background-color: #d35400;
+    }
+
+    /* Pagination section */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .pagination button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .pagination button:hover {
+      background-color: #444;
+    }
+
+    /* Footer section */
+    footer {
+      background-color: #1a1a1a;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    footer a {
+      color: #e67e22;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header nav {
+        display: none;
+      }
+
+      .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+        background-color: #1a1a1a;
+        transform: translateX(-100%); /* Initially hide sidebar */
+      }
+
+      .sidebar.active {
+        transform: translateX(0); /* Show sidebar when active */
+      }
+
+      .content {
+        margin-left: 0;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .filter-group input {
+        width: 90%; /* Make price range slider more responsive */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        position: relative;
+      }
+    }
+
+    /* Price Range Label */
+    #priceRange {
+      font-size: 14px;
+      margin-top: 5px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="logo">ShopLogo</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search Products..." oninput="filterProducts()">
+    </div>
+    <div class="cart">🛒 Cart</div>
+  </header>
+
+  <!-- Sidebar Filters Section -->
+  <div class="sidebar" id="sidebar">
+    <h3>Filters</h3>
+
+    <!-- Category Filter -->
+    <div class="filter-group">
+      <label for="category">Category</label>
+      <select id="category" onchange="filterProducts()">
+        <option value="all">All</option>
+        <option value="electronics">Electronics</option>
+        <option value="fashion">Fashion</option>
+        <option value="home">Home</option>
+        <option value="beauty">Beauty</option>
+        <option value="equipment">Equipment</option>
+      </select>
+    </div>
+
+    <!-- Price Range Filter -->
+    <div class="filter-group">
+      <label for="price">Price Range</label>
+      <input type="range" id="price" min="0" max="100000" step="50" value="100000" onchange="filterProducts()">
+      <p id="priceRange">Up to ₹100000</p>
+    </div>
+
+    <!-- Rating Filter -->
+    <div class="filter-group">
+      <label for="rating">Rating</label>
+      <select id="rating" onchange="filterProducts()">
+        <option value="all">All</option>
+        <option value="5">5 Stars</option>
+        <option value="4">4 Stars</option>
+        <option value="3">3 Stars</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Product Grid Section -->
+  <div class="content" id="productGrid">
+    <!-- Products will be dynamically inserted here using JavaScript -->
+  </div>
+
+  <!-- Pagination Section -->
+  <div class="pagination" id="pagination">
+    <!-- Pagination buttons will be dynamically inserted here -->
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <a href="#">Contact Us</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+  </footer>
+
+  <script>
+    // Sample product data
+    const products = [
+  { id: 1, title: 'Laptop', category: 'electronics', price: (40000), rating: 5, image: './images/laptop.jpg' },
+  { id: 2, title: 'Shirt', category: 'fashion', price: (1000), rating: 4, image: './images/shirt.jpg' },
+  { id: 3, title: 'Coffee Maker', category: 'home', price: (2500), rating: 3, image: './images/coffee_maker.jpg' },
+  { id: 4, title: 'Phone', category: 'electronics', price: (30000), rating: 5, image: './images/mobile.jpg' },
+  { id: 5, title: 'Watch', category: 'fashion', price: (2000),rating: 4, image: './images/watch.jpg' },
+  { id: 6, title: 'Microwave', category: 'home', price: (20000), rating: 5, image: './images/microwave.jpg' },
+  { id: 7, title: 'Headphones', category: 'electronics', price: (5000), rating: 4, image: './images/headphones.avif' },
+  { id: 8, title: 'Shoes', category: 'fashion', price: (4000), rating: 3, image: './images/shoes.jpg' },
+  { id: 9, title: 'Blender', category: 'home', price: (3600), rating: 4, image: './images/blender.jpg' },
+  { id: 10, title: 'Jeans', category: 'fashion', price: (1500), rating: 3, image: 'images/jeans.webp' },
+  { id: 11, title: 'Sunglasses', category: 'fashion', price: (1000), rating: 4, image: './images/sunglasses.jpg' },
+  { id: 12, title: 'Smart Watch', category: 'electronics', price: (7000), rating: 5, image: './images/smartwatch.jpg' },
+  { id: 13, title: 'Gaming Mouse', category: 'electronics', price: (8000), rating: 4, image: './images/gaming_mouse.jpg' },
+  { id: 14, title: 'Dining Table', category: 'home', price: (60000), rating: 5, image: './images/dining_table.webp' },
+  { id: 15, title: 'Outdoor Chair', category: 'home', price: (40000), rating: 3, image: './images/outdoor_chair.jpg' },
+  { id: 16, title: 'Face Serum', category: 'beauty', price: (3500), rating: 5, image: './images/face_serum.jpg' },
+  { id: 17, title: 'Makeup Kit', category: 'beauty', price: (2999), rating: 4, image: './images/makeup_kit.jpg' },
+  { id: 18, title: 'Treadmill', category: 'equipment', price: (78000), rating: 5, image: './images/treadmill.jpg' },
+  { id: 19, title: 'Dumbbells Set', category: 'equipment', price: (78000), rating: 4, image: './images/dumbbells_set.webp' },
+  { id: 20, title: 'Yoga Mat', category: 'equipment', price: (3999), rating: 3, image: './images/yoga_mat.jpg' },
+  { id: 21, title: 'Lipstick', category: 'beauty', price: (1999), rating: 3, image: './images/lipstick.jpg' },
+  { id: 22, title: 'Nailpolish', category: 'beauty', price: (1599), rating: 3, image: './images/nailpolish.jpg' },
+  { id: 23, title: 'Scarf', category: 'fashion', price: (1299), rating: 3, image: 'images/scarf.webp' },
+  { id: 24, title: 'Shampoo', category: 'beauty', price: (600), rating: 3, image: './images/shampoo.jpg' },
+  { id: 25, title: 'Tablet', category: 'electronics', price: (50000), rating: 4, image: './images/tablet.jpg' },
+  { id: 26, title: 'Jacket', category: 'fashion', price: (8000), rating: 3, image: './images/jacket.jpg' },
+  { id: 27, title: 'Sofa', category: 'home', price: (80000), rating: 5, image: './images/sofa.webp' }
+];
+
+    let filteredProducts = [...products];
+
+    // Function to render products
+    function renderProducts() {
+      const productGrid = document.getElementById('productGrid');
+      productGrid.innerHTML = '';
+      filteredProducts.forEach(product => {
+        const productDiv = document.createElement('div');
+        productDiv.classList.add('product');
+        productDiv.innerHTML = `
+          <img src="${product.image}" alt="${product.title}">
+          <h4>${product.title}</h4>
+          <p>₹${product.price}</p>
+          <p>Rating: ${product.rating}★</p>
+          <button>Add to Cart</button>
+        `;
+        productGrid.appendChild(productDiv);
+      });
+    }
+
+    // Function to filter products
+    function filterProducts() {
+      const category = document.getElementById('category').value;
+      const price = document.getElementById('price').value;
+      const rating = document.getElementById('rating').value;
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+      filteredProducts = products.filter(product => {
+        const matchesCategory = category === 'all' || product.category === category;
+        const matchesPrice = product.price <= price;
+        const matchesRating = rating === 'all' || product.rating >= rating;
+        const matchesSearch = product.title.toLowerCase().includes(searchTerm);
+
+        return matchesCategory && matchesPrice && matchesRating && matchesSearch;
+      });
+
+      renderProducts();
+      updatePriceLabel(price);
+    }
+
+    // Update price range label dynamically
+    function updatePriceLabel(price) {
+      document.getElementById('priceRange').innerText = `Up to ₹${price}`;
+    }
+
+    // Initial render of products
+    renderProducts();
+  </script>
+
+</body>
+</html>
