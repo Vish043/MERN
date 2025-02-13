@@ -1,0 +1,50 @@
+body {
+    background-color: #121212;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.table-container {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    width: 600px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #333;
+}
+
+td[contenteditable="true"] {
+    background: #222;
+    outline: none;
+}
+
+button {
+    background: #4caf50;
+    color: #fff;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 2px;
+}
+
+button:hover {
+    background: #45a049;
+}

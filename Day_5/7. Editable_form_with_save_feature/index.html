@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Table</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td contenteditable="false">John Doe</td>
+                    <td contenteditable="false">25</td>
+                    <td contenteditable="false">New York</td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="save-btn" hidden>Save</button>
+                        <button class="cancel-btn" hidden>Cancel</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td contenteditable="false">Jane Smith</td>
+                    <td contenteditable="false">30</td>
+                    <td contenteditable="false">Los Angeles</td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="save-btn" hidden>Save</button>
+                        <button class="cancel-btn" hidden>Cancel</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

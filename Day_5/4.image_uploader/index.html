@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag & Drop Image Uploader</title>
+    <link rel="stylesheet" href="style.css"> <!-- Linking CSS file -->
+</head>
+<body>
+
+    <div class="upload-container">
+        <h2>Drag & Drop Image Uploader</h2>
+        
+        <!-- Drop Zone -->
+        <div id="drop-zone">
+            <p>Drag & drop an image here or <span id="file-select">click to upload</span></p>
+            <input type="file" id="file-input" accept="image/*" hidden>
+        </div>
+
+        <!-- Image Preview -->
+        <div id="preview-container">
+            <img id="image-preview" src="" alt="Preview" style="display: none;">
+            <p id="error-message" style="color: red; display: none;"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Linking JavaScript file -->
+</body>
+</html>
