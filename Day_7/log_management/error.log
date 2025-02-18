@@ -1,0 +1,11 @@
+
+[2025-02-14 07:24:45] Error:
+Something went wrong in the application!
+
+Stack Trace:
+Error: Something went wrong in the application!
+    at file:///C:/Users/Vishal/Desktop/Mern_continue/Day_7/log_management/app.js:26:11
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+-------------------------

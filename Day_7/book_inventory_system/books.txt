@@ -1,0 +1,6 @@
+ISBN, Title, Author, Genre, CopiesAvailable
+978-3-16-148410-0, The Great Gatsby, F. Scott Fitzgerald, Fiction, 5
+978-0-14-044913-6, Crime and Punishment, Fyodor Dostoevsky, Fiction, 2
+978-1-891830-75-4, The Road to Reality, Roger Penrose, Science, 3
+978-0-7432-7356-5, A Brief History of Time, Stephen Hawking, Science, 4
+978-0-06-112241-5, To Kill a Mockingbird, Harper Lee, Fiction, 1

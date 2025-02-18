@@ -1,0 +1,10 @@
+Date: 2025-02-14
+
+Items Sold:
+
+Laptop Quantity: 2, Price: $1200
+Mouse Quantity: 5, Price: $25
+Keyboard Quantity: 3, Price: $45
+
+Total Revenue:
+$2660.00

@@ -1,0 +1,29 @@
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+function saveFeedback(feedback) {
+    const feedbackFile = path.join(__dirname, 'feedback.txt');
+    const feedbackContent = `\nName: ${feedback.name}\nEmail: ${feedback.email}\nMessage: ${feedback.message}\n-------------------------\n`;
+    
+    fs.appendFile(feedbackFile, feedbackContent, 'utf8', (err) => {
+        if (err) {
+            console.error('Error saving feedback:', err);
+        } else {
+            console.log('Feedback saved successfully.');
+        }
+    });
+}
+
+// Example Usage
+const feedbackData = {
+    name: 'Alice Johnson',
+    email: 'alice@example.com',
+    message: 'I love the website! It’s very helpful.'
+};
+
+saveFeedback(feedbackData);

@@ -1,0 +1,6 @@
+EmployeeID, Name, Department, Salary
+101, John Doe, IT, 60000
+102, Jane Smith, HR, 55000
+103, Alex Johnson, Marketing, 50000
+104, Emily Davis, IT, 65000
+105, Michael Brown, HR, 58000
