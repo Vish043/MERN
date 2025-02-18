@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "module"
+          },
+          
+        {
+            "name": "Launch Chrome",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Open index.html",
+            "type": "chrome",
+            "request": "launch",
+            "file": "c:\\Users\\Vishal\\Desktop\\Mern_continue\\day_8\\index.html"
+        },
+        {
+            "name": "Launch Node.js",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/app.js"
+        }
+    ]
+}
